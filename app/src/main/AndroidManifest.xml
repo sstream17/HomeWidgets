@@ -19,6 +19,12 @@
                 android:resource="@xml/parking_info" />
         </receiver>
 
+        <receiver android:name=".intents.BroadcastManager">
+            <intent-filter>
+                <action android:name="com.stream.homewidgets.UPDATE_PARKING" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -29,9 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".intents.SendBroadcastActivity" />
     </application>
 
 </manifest>

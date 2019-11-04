@@ -7,9 +7,13 @@ import android.content.Context
 import android.content.Intent
 import com.stream.homewidgets.Parking
 
+
 class BroadcastManager: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        broadcastParkingIntent(context, "Fifth")
+        if (intent?.action.equals("com.stream.homewidgets.UPDATE_PARKING")){
+            val currentFloor = intent?.getStringExtra("Floor_Parked")
+            broadcastParkingIntent(context, currentFloor)
+        }
     }
 
     fun broadcastParkingIntent(context: Context?, floor: String?)
