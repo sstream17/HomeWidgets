@@ -5,7 +5,6 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
 import android.content.Intent
-import android.util.Log
 
 /**
  * Implementation of App Widget functionality.
