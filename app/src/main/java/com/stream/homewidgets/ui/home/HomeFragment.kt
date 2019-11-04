@@ -8,9 +8,9 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.stream.homewidgets.MainActivity
 import com.stream.homewidgets.R
 import com.stream.homewidgets.WidgetPreferences
+import com.stream.homewidgets.intents.BroadcastManager
 
 class HomeFragment : Fragment() {
 
@@ -47,7 +47,8 @@ class HomeFragment : Fragment() {
                 id: Long
             ) {
                 preferences.setParkingFloor(spinner.getItemAtPosition(position) as String)
-                (activity as MainActivity).broadcastParkingIntent(context, preferences.getParkingFloor())
+                val broadcastManager = BroadcastManager()
+                broadcastManager.broadcastParkingIntent(context, preferences.getParkingFloor())
             }
         }
         return root

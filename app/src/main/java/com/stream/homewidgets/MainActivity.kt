@@ -44,17 +44,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-    fun broadcastParkingIntent(context: Context?, floor: String?)
-    {
-        context?.let {
-            val componentName = ComponentName(it, Parking::class.java)
-            val intent = Intent(context, Parking::class.java)
-            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-            val ids = AppWidgetManager.getInstance(it).getAppWidgetIds(componentName)
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-            intent.putExtra("Floor_Parked", floor)
-            sendBroadcast(intent)
-        }
-    }
 }
