@@ -15,7 +15,7 @@
         android:contentDescription="@string/parking_icon"
         android:padding="2dp"
         android:shadowColor="#000000"
-        android:shadowRadius="4"
+        android:shadowRadius="6"
         android:text="@string/parking_icon"
         android:textColor="#ffffff"
         android:textSize="24sp" />
