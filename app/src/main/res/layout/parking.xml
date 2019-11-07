@@ -13,7 +13,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/parking_icon"
-        android:padding="8dp"
+        android:padding="2dp"
         android:shadowColor="#000000"
         android:shadowRadius="8"
         android:text="@string/parking_icon"
