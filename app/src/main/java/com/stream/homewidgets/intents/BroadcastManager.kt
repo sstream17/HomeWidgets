@@ -6,9 +6,13 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import com.stream.homewidgets.Parking
+import com.stream.homewidgets.WidgetPreferences
 
 
 class BroadcastManager: BroadcastReceiver() {
+
+    lateinit var preferences: WidgetPreferences
+
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent?.action.equals("com.stream.homewidgets.UPDATE_PARKING")){
             val currentFloor = intent?.getStringExtra("Floor_Parked")
@@ -19,6 +23,7 @@ class BroadcastManager: BroadcastReceiver() {
     fun broadcastParkingIntent(context: Context?, floor: String?)
     {
         context?.let {
+            preferences = WidgetPreferences(it)
             val componentName = ComponentName(it, Parking::class.java)
             val intent = Intent(context, Parking::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
@@ -26,6 +31,7 @@ class BroadcastManager: BroadcastReceiver() {
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
             intent.putExtra("Floor_Parked", floor)
             context.sendBroadcast(intent)
+            preferences.setParkingFloor(floor!!)
         }
     }
 }
