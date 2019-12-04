@@ -30,7 +30,7 @@ class BroadcastManager: BroadcastReceiver() {
             val ids = AppWidgetManager.getInstance(it).getAppWidgetIds(componentName)
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
             intent.putExtra("Floor_Parked", floor)
-            context.sendBroadcast(intent)
+            it.sendBroadcast(intent)
             preferences.setParkingFloor(floor!!)
         }
     }
