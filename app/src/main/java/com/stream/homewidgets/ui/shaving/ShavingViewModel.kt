@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class ShavingViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is shaving Fragment"
+        value = "How many times have you shaved?"
     }
     val text: LiveData<String> = _text
 }
